@@ -11,6 +11,7 @@ import { TemplateRegistry } from '@backbase/foundation-ang/core';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { RemoteConfigService } from '@backbase/remote-config-ang';
 import { TransactionSigningModule } from '@backbase/identity-transaction-signing';
+import { FontsLoaderService } from './fonts-loader/fonts-loader.service';
 
 export function applicationInitializer(remoteConfig: RemoteConfigService<RetailAppRemoteConfig>) {
   return () => remoteConfig.fetchAndActivate();
@@ -40,6 +41,15 @@ export function applicationInitializer(remoteConfig: RemoteConfigService<RetailA
       multi: true,
     },
     ...(environment.production ? [] : environment.mockProviders),
+    FontsLoaderService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (service: FontsLoaderService) => {
+        return () => service.load();
+      },
+      multi: true,
+      deps: [FontsLoaderService],
+    },
   ],
   bootstrap: [AppComponent],
 })
