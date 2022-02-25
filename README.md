@@ -1,2 +1,1 @@
-# bb-font-loader-example
-Test repo fro showcasing the font loader functionality
+The solution is ready for review at GitHub - https://github.com/oshchepkov/bb-font-loader-example
