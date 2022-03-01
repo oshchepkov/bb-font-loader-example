@@ -8,7 +8,7 @@ vs
 ![](./readme/1.png)
 
 # How it works
-The solution preloads selected fonts during the application starup. The developer is able to add the required font-faces to the style sheet and update configuration to have those fonts preloaded in order to avoid icon names appearing briefly on the screen.  
+The solution preloads selected fonts during the application startup. A developer is able to add fonts and update configuration to have those fonts preloaded in order to avoid icon names or misformatted text to appear briefly on the screen.  
 
 # How to add to a project
 
@@ -23,9 +23,11 @@ The solution preloads selected fonts during the application starup. The develope
 
     `npm install -save -dev @types/css-font-loading-module`
 
-3. Add a font. "Material Icons" and "Material Icons Outlined" fonts are included OOTB, but the developer can add any other font to the application. For instance "IcoMoon":
+3. Import `FontsLoaderModule` and `FontsLoaderConfigurationToken` in `src/app/app.module.ts`.
 
-    a. Copy font files into projects `./assets/fonts` folder, for example:
+4. Add a font. "Material Icons" and "Material Icons Outlined" fonts are included OOTB, but the developer can add any other font to the application. For instance "IcoMoon":
+
+    a. Copy font files into project's assets folder, for example:
 
     `src/assets/fonts/IcoMoon/icomoon.ttf `
 
@@ -40,9 +42,7 @@ The solution preloads selected fonts during the application starup. The develope
     }
     ```
 
-4. Import `FontsLoaderModule` and `FontsLoaderConfigurationToken` in `src/app/app.module.ts`.
-
-5. Add custom configuration in `src/app/app.module.ts` onto `providers` aray which lists fonts to preload.
+5. Add custom configuration in `src/app/app.module.ts` into `providers` aray which lists fonts to preload:
 
 ```
     {
@@ -50,6 +50,10 @@ The solution preloads selected fonts during the application starup. The develope
       useValue: { fonts: [{ family: 'Material Icons Outlined' }, { family: 'Material Icons' }, { family: 'IcoMoon' }] },
     },
 ```
+
+6. Restart the app.
+
+7. Check the browser's console "Network" tab for loaded fonts.
 
 `!` Text in the "family" field must match the font-face family name.
 
