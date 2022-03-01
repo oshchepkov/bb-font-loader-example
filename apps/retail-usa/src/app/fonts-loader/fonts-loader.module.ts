@@ -15,7 +15,7 @@ import { FontsLoaderService } from './fonts-loader.service';
     },
     {
       provide: FontsLoaderConfigurationToken,
-      useValue: { fonts: [{ family: 'Material Icons Outlined' }, { family: 'Material Icons' }, { family: 'IcoMoon' }] },
+      useValue: { fonts: [{ family: 'Material Icons Outlined' }, { family: 'Material Icons' }] },
     },
   ],
 })
