@@ -19,7 +19,7 @@ The solution preloads selected fonts during the application startup. A developer
    ```
    "lib": ["es2021", "dom"],
    ```
-2. Install types for @types/css-font-loading-module
+2. Install types for css-font-loading-module
 
     `npm install -save -dev @types/css-font-loading-module`
 
@@ -50,12 +50,11 @@ The solution preloads selected fonts during the application startup. A developer
       useValue: { fonts: [{ family: 'Material Icons Outlined' }, { family: 'Material Icons' }, { family: 'IcoMoon' }] },
     },
 ```
+`!` Text in the "family" field must match the font-face family name.
 
 6. Restart the app.
 
 7. Check the browser's console "Network" tab for loaded fonts.
-
-`!` Text in the "family" field must match the font-face family name.
 
 # Harvested Code
 [Google Drive link](https://drive.google.com/drive/u/0/folders/1IlToe3g8exjr_EWM1hTxHdMqMTO96Iy2)
