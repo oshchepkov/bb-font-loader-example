@@ -12,20 +12,13 @@ The solution preloads selected fonts during the application startup. A developer
 
 # How to add to a project
 
-1. Update TypeScript defenitions in `./tsconfig.base.json`.
-   
-   Add `es2021` to `lib` array:
-
-   ```
-   "lib": ["es2021", "dom"],
-   ```
-2. Install types for css-font-loading-module
+1. Install types for css-font-loading-module
 
     `npm install -save -dev @types/css-font-loading-module`
 
-3. Import `FontsLoaderModule` and `FontsLoaderConfigurationToken` in `src/app/app.module.ts`.
+2. Import `FontsLoaderModule` and `FontsLoaderConfigurationToken` in `src/app/app.module.ts`.
 
-4. Add a font. "Material Icons" and "Material Icons Outlined" fonts are included OOTB, but the developer can add any other font to the application. For instance "IcoMoon":
+3. Add a font. "Material Icons" and "Material Icons Outlined" fonts are included OOTB, but the developer can add any other font to the application. For instance "IcoMoon":
 
     a. Copy font files into project's assets folder, for example:
 
@@ -42,7 +35,7 @@ The solution preloads selected fonts during the application startup. A developer
     }
     ```
 
-5. Add custom configuration in `src/app/app.module.ts` into `providers` aray which lists fonts to preload:
+4. Add custom configuration in `src/app/app.module.ts` into `providers` aray which lists fonts to preload:
 
 ```
     {
@@ -52,9 +45,9 @@ The solution preloads selected fonts during the application startup. A developer
 ```
 `!` Text in the "family" field must match the font-face family name.
 
-6. Restart the app.
+5. Restart the app.
 
-7. Check the browser's console "Network" tab for loaded fonts.
+6. Check the browser's console "Network" tab for loaded fonts.
 
 # Harvested Code
 [Google Drive link](https://drive.google.com/drive/u/0/folders/1IlToe3g8exjr_EWM1hTxHdMqMTO96Iy2)
