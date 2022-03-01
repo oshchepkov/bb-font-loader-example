@@ -4,7 +4,11 @@ The solution is ready for review at GitHub - https://github.com/oshchepkov/bb-fo
 # The "Ask"
 There are times where Icon fonts do not load in time before used in the application. This causes disruption for the User Interface, showing "text" as a replacement, until the font loads. We can initialize all icon fonts during startup. 
 
-![Image](./readme/2.png)
+![](./readme/2.png)
+
+vs 
+
+![](./readme/1.png)
 
 # How it works
 The solution preloads selected fonts during the application starup. The developer is able to add the required font-faces to the style sheet and update configuration to have those fonts preloaded in order to avoid icon names appearing briefly on the screen.  
