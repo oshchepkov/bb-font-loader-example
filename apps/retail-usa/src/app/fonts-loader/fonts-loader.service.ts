@@ -25,7 +25,6 @@ export class FontsLoaderService {
         [],
       );
       Promise.allSettled(promises).then((data) => {
-        console.log('all loaded', data);
         resolve();
       });
     });
