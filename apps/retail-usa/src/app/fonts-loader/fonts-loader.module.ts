@@ -1,10 +1,8 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FontsLoaderConfigurationToken } from './fonts-loader.configuration';
-import { CommonModule } from '@angular/common';
 import { FontsLoaderService } from './fonts-loader.service';
 
 @NgModule({
-  imports: [CommonModule],
   providers: [
     FontsLoaderService,
     {
