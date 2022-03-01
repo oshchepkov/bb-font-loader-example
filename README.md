@@ -1,6 +1,3 @@
-The solution is ready for review at GitHub - https://github.com/oshchepkov/bb-font-loader-example
-
-
 # The "Ask"
 There are times where Icon fonts do not load in time before used in the application. This causes disruption for the User Interface, showing "text" as a replacement, until the font loads. We can initialize all icon fonts during startup. 
 
@@ -56,32 +53,5 @@ The solution preloads selected fonts during the application starup. The develope
 
 `!` Text in the "family" field must match the font-face family name.
 
-
-**Harvested Code**
-https://drive.google.com/drive/u/0/folders/1IlToe3g8exjr_EWM1hTxHdMqMTO96Iy2
-
-------
-
-**Acceptance Criteria**
-**Given** a new retail session
-**When** the app initializes
-**Then** the app should preload icon fonts
-
-**Given** a list of fonts to preload 
-**When** the app initializes
-**Then** the app preloads the list of fonts
-
-------
-
-**Technical Solution**
-https://angular.io/api/core/APP_INITIALIZER
-Just like the Remote Config service in the retail-app, preload the fonts
-
-
----
-**README should include**
-
-- the harvesting "Ask"
-- how it works 
-- how-to add to a project
-- Dev dependencies, such as Backend 
+# Harvested Code
+[Google Drive link](https://drive.google.com/drive/u/0/folders/1IlToe3g8exjr_EWM1hTxHdMqMTO96Iy2)
