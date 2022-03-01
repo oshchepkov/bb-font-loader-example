@@ -11,8 +11,7 @@ import { TemplateRegistry } from '@backbase/foundation-ang/core';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { RemoteConfigService } from '@backbase/remote-config-ang';
 import { TransactionSigningModule } from '@backbase/identity-transaction-signing';
-import { FontsLoaderService } from './fonts-loader/fonts-loader.service';
-import { FontsLoaderConfiguration, FontsLoaderConfigurationToken } from './fonts-loader/fonts-loader.configuration';
+import { FontsLoaderModule } from './fonts-loader/fonts-loader.module';
 
 export function applicationInitializer(remoteConfig: RemoteConfigService<RetailAppRemoteConfig>) {
   return () => remoteConfig.fetchAndActivate();
@@ -27,6 +26,7 @@ export function applicationInitializer(remoteConfig: RemoteConfigService<RetailA
     TransactionSigningModule,
     environment.animation ? BrowserAnimationsModule : NoopAnimationsModule,
     ...appModuleImports,
+    FontsLoaderModule,
   ],
   providers: [
     {
@@ -42,22 +42,6 @@ export function applicationInitializer(remoteConfig: RemoteConfigService<RetailA
       multi: true,
     },
     ...(environment.production ? [] : environment.mockProviders),
-    /**
-     * Fonts loader
-     */
-    FontsLoaderService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (service: FontsLoaderService) => {
-        return () => service.load();
-      },
-      multi: true,
-      deps: [FontsLoaderService],
-    },
-    {
-      provide: FontsLoaderConfigurationToken,
-      useValue: { fonts: [{ family: 'Material Icons Outlined' }, { family: 'Material Icons' }, { family: 'IcoMoon' }] },
-    },
   ],
   bootstrap: [AppComponent],
 })

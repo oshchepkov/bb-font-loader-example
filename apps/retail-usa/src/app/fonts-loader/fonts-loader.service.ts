@@ -16,7 +16,6 @@ export class FontsLoaderService {
   load() {
     return new Promise<void>((resolve, reject) => {
       const fontFaceSet: FontFaceSet = window.document.fonts;
-
       const promises: Promise<FontFace[]>[] = this._config.fonts.reduce(
         (p: Promise<FontFace[]>[], font: LoadableFont) => {
           p.push(fontFaceSet.load(`${font.size ? font.size : defaultFontSize} ${font.family}`));
@@ -25,7 +24,6 @@ export class FontsLoaderService {
         [],
       );
       Promise.allSettled(promises).then((data) => {
-        console.log('all loaded', data);
         resolve();
       });
     });
