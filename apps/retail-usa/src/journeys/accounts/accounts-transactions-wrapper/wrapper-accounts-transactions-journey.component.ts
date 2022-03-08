@@ -14,12 +14,12 @@ import { QuickActionLink } from '../quick-actions.component';
             [inputMask]="'00/00/0000'"
             [overrideDateFormat]="'MM/dd/yyyy'"
             label="Schedule transfer"
-            [(ngModel)]="model"
-            [rangeSelection]="true"
+            [(ngModel)]="testModel"
+            [rangeSelection]="false"
             [rangeSelectionSplit]="false"
             >
           </bb-input-datepicker-ui>
-          <small>model value: {{model | json}}</small>
+          <small>model value: {{testModel | json}}</small>
 
 
           <router-outlet></router-outlet>
@@ -38,7 +38,7 @@ import { QuickActionLink } from '../quick-actions.component';
 })
 export class AccountsTransactionsJourneyWrapperComponent {
 
-  model = '05/05/2025'
+  testModel = '05/05/2025';
 
   quickActionLinks: QuickActionLink[] = [
     {
