@@ -3,8 +3,13 @@ We wish to add masking to the DesignSystem datepicker. There is a npm package th
 
 This solution is different compared to the other ngx-mask implementation. We have to target ngModelChange
 
+![](./readme/date-mask.gif)
+
 # How it works
-The solution is a directive that adds input masking functionaliy to the OOTB datepicker UI component. While user types in the input element, the mask is being applied to the typed text, filtering out all not suported characters.  
+The solution is a directive that adds input masking functionaliy to the OOTB datepicker UI component. While user types in the input element, the mask is being applied to the typed text, filtering out all not suported characters. 
+Date range and split date range modes are supported.
+
+We use [ngx-mask](https://github.com/JsDaddy/ngx-mask) pipe to transform the dare value.
 
 # How to add to a project
 
@@ -32,4 +37,4 @@ The solution is a directive that adds input masking functionaliy to the OOTB dat
 
 
 # Harvested Code
-[Google Drive link](https://drive.google.com/drive/u/0/folders/1IlToe3g8exjr_EWM1hTxHdMqMTO96Iy2)
+[Google Drive link](https://drive.google.com/drive/u/2/folders/1n774E8-mszlQiSr-7X5ZzLIdU4pNlVF-)
