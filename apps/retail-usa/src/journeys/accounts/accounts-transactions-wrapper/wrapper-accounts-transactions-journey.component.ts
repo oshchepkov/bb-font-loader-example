@@ -17,8 +17,10 @@ import { QuickActionLink } from '../quick-actions.component';
             [(ngModel)]="model"
             [rangeSelection]="true"
             [rangeSelectionSplit]="false"
-          ></bb-input-datepicker-ui>
+            >
+          </bb-input-datepicker-ui>
           <small>model value: {{model | json}}</small>
+
 
           <router-outlet></router-outlet>
         </div>
