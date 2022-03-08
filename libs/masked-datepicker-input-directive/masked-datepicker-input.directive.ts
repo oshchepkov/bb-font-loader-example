@@ -62,8 +62,8 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
       this.updateModel(model);
     } else if (this.rangeSelection) {
       const dateSectionLength = this.getDateSectionLength(this.activeInput.getAttribute('placeholder'));
-      model.from = this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this.inputMask);
-      model.to = this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this.inputMask);
+      model.from = this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this._inputMask);
+      model.to = this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this._inputMask);
       this.updateModel(model);
     } else {
       if (this.activeInput) {
