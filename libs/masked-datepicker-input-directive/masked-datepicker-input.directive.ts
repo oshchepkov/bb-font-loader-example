@@ -32,7 +32,7 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
     }
   }
   @HostListener('ngModelChange', ['$event'])
-  modelchange(event) {
+  modelchange() {
     if (this.activeInput) {
       this.renderer.setProperty(
         this.activeInput,
@@ -48,16 +48,20 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
   }
 
   @HostListener('window:keyup', ['$event'])
-  keyup(event) {
-    // need update model object to match input.
+  keyup() {
+    /*
+     * need update model object to match input.
+     * use keyup to update model, otherwise the model's value is late on changes.
+     */
+
+    //  two special cases for date range selector
+    const model: DateRangeModel = { from: '', to: '' };
     if (this.rangeSelectionSplit) {
-      const model: DateRangeModel = { from: '', to: '' };
       model.from = this.maskPipe.transform(this.inputs[0].value, this.inputMask);
       model.to = this.maskPipe.transform(this.inputs[1].value, this.inputMask);
       this.updateModel(model);
     } else if (this.rangeSelection) {
       const dateSectionLength = this.getDateSectionLength(this.activeInput.getAttribute('placeholder'));
-      const model: DateRangeModel = { from: '', to: '' };
       model.from = this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this.inputMask);
       model.to = this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this.inputMask);
       this.updateModel(model);
@@ -73,7 +77,7 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
   }
 
   getDateSectionLength(value: string): number {
-    const section = value.split('-')[0];
+    const section = value.split(' - ')[0];
     if (section) {
       return section.trim().length;
     }
