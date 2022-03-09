@@ -50,26 +50,10 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
   @HostListener('window:keyup', ['$event'])
   keyup() {
     /*
-     * need update model object to match input.
+     * need ro update the model object to match input value.
      * use keyup to update model, otherwise the model's value is late on changes.
      */
-
-    //  two special cases for date range selector
-    const model: DateRangeModel = { from: '', to: '' };
-    if (this.rangeSelectionSplit) {
-      model.from = this.maskPipe.transform(this.inputs[0].value, this.inputMask);
-      model.to = this.maskPipe.transform(this.inputs[1].value, this.inputMask);
-      this.updateModel(model);
-    } else if (this.rangeSelection) {
-      const dateSectionLength = this.getDateSectionLength(this.activeInput.getAttribute('placeholder'));
-      model.from = this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this._inputMask);
-      model.to = this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this._inputMask);
-      this.updateModel(model);
-    } else {
-      if (this.activeInput) {
-        this.updateModel(this.maskPipe.transform(this.activeInput.value, this.inputMask));
-      }
-    }
+    this.updateModel(this.getModelValue());
   }
 
   updateModel(value: DateRangeModel | string) {
@@ -82,5 +66,24 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
       return section.trim().length;
     }
     return 0;
+  }
+
+  getModelValue(): DateRangeModel | string {
+    //  two special cases (BB datepicker specific) for date range selector
+    const model: DateRangeModel = { from: '', to: '' };
+    if (this.rangeSelectionSplit) {
+      model.from = this.maskPipe.transform(this.inputs[0].value, this.inputMask);
+      model.to = this.maskPipe.transform(this.inputs[1].value, this.inputMask);
+      return model;
+    } else if (this.rangeSelection && this.activeInput) {
+      const dateSectionLength = this.getDateSectionLength(this.activeInput.getAttribute('placeholder'));
+      model.from = this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this._inputMask);
+      model.to = this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this._inputMask);
+      return model;
+    } else {
+      if (this.activeInput) {
+        return this.maskPipe.transform(this.activeInput.value, this.inputMask);
+      }
+    }
   }
 }
