@@ -19,7 +19,7 @@ import { QuickActionLink } from '../quick-actions.component';
             [rangeSelectionSplit]="false"
             >
           </bb-input-datepicker-ui>
-         <!-- <small>model value: {{testModel | json}}</small> -->
+         <small>model value: {{testModel | json}}</small>
 
 
           <router-outlet></router-outlet>
