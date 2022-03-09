@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuickTransferJourneyModule } from '@backbase/quick-transfer-journey-ang';
 import { AccountsTransactionsJourneyWrapperComponent } from './wrapper-accounts-transactions-journey.component';
 import { QuickActionsComponent } from '../quick-actions.component';
+import { InputDatepickerModule } from '@backbase/ui-ang';
+import { MaskedDatepickerInpuModule } from '../../../../../../libs/masked-datepicker-input-directive/masked-datepicker-input.module';
 
 const routes: Routes = [
   {
@@ -23,6 +25,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AccountsTransactionsJourneyWrapperComponent, QuickActionsComponent],
-  imports: [QuickTransferJourneyModule, RouterModule.forChild(routes), CommonModule],
+  imports: [
+    QuickTransferJourneyModule,
+    RouterModule.forChild(routes),
+    CommonModule,
+    InputDatepickerModule,
+    MaskedDatepickerInpuModule,
+  ],
 })
 export class AccountsTransactionsJourneyBundleModule {}
