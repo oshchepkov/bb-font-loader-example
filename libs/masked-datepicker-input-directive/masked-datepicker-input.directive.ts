@@ -70,16 +70,17 @@ export class MaskedDatepickerInputDirective implements AfterViewInit, OnInit {
 
   getModelValue(): DateRangeModel | string {
     //  two special cases (BB datepicker specific) for date range selector
-    const model: DateRangeModel = { from: '', to: '' };
     if (this.rangeSelectionSplit) {
-      model.from = this.maskPipe.transform(this.inputs[0].value, this.inputMask);
-      model.to = this.maskPipe.transform(this.inputs[1].value, this.inputMask);
-      return model;
+      return {
+        from: this.maskPipe.transform(this.inputs[0].value, this.inputMask),
+        to: this.maskPipe.transform(this.inputs[1].value, this.inputMask),
+      };
     } else if (this.rangeSelection && this.activeInput) {
       const dateSectionLength = this.getDateSectionLength(this.activeInput.getAttribute('placeholder'));
-      model.from = this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this._inputMask);
-      model.to = this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this._inputMask);
-      return model;
+      return {
+        from: this.maskPipe.transform(this.activeInput.value.slice(0, dateSectionLength), this._inputMask),
+        to: this.maskPipe.transform(this.activeInput.value.slice(-dateSectionLength), this._inputMask),
+      };
     } else {
       if (this.activeInput) {
         return this.maskPipe.transform(this.activeInput.value, this.inputMask);
