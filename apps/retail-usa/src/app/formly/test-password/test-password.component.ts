@@ -3,6 +3,11 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Validation } from '../validators';
 
+/**
+ * this is a test component that provides
+ * a form where we can put the password component
+ */
+
 @Component({
   selector: 'test-password-journey',
   templateUrl: './test-password.component.html',
