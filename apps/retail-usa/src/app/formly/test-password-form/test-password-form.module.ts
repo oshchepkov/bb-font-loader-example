@@ -12,7 +12,7 @@ import {
   passwordsMinLengthValidator,
   Validation,
 } from '../validators';
-import { TestPasswordJourneyComponent } from './test-password.component';
+import { TestPasswordJourneyComponent } from './test-password-form.component';
 
 @NgModule({
   declarations: [TestPasswordJourneyComponent],

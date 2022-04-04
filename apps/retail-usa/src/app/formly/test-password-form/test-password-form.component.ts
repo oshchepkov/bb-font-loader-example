@@ -10,7 +10,7 @@ import { Validation } from '../validators';
 
 @Component({
   selector: 'test-password-journey',
-  templateUrl: './test-password.component.html',
+  templateUrl: './test-password-form.component.html',
 })
 export class TestPasswordJourneyComponent {
   form = new FormGroup({});
