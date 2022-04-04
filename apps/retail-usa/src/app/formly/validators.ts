@@ -20,7 +20,7 @@ export function passwordsMatchValidator(control: AbstractControl) {
   if (confirmNewPassword === newPassword) {
     return null;
   }
-  return { [Validation.PasswordsMatch]: { message: "Passwords don' Match" } };
+  return { [Validation.PasswordsMatch]: { message: "Passwords don't match" } };
 }
 
 export function passwordsMinLengthValidator({ value }: AbstractControl): null | ValidationErrors {
