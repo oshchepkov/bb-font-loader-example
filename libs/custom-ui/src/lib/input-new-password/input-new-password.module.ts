@@ -7,7 +7,7 @@ import { FormlyModule } from '@ngx-formly/core';
 
 @NgModule({
   declarations: [InputNewPasswordComponent],
-  imports: [CommonModule, InputPasswordModule, ReactiveFormsModule, IconModule,FormlyModule],
+  imports: [CommonModule, InputPasswordModule, ReactiveFormsModule, IconModule, FormlyModule],
   exports: [InputNewPasswordComponent],
 })
 export class InputNewPasswordModule {}

@@ -1,9 +1,10 @@
 import { InjectionToken } from '@angular/core';
-import { ValidatorOption } from '@ngx-formly/core/lib/services/formly.config';
+import { ValidatorFn } from '@angular/forms';
 
 export interface NewPasswordValidatorConfiguration {
-  validator: string;
   label: string;
+  name: string;
+  validation: ValidatorFn;
 }
 
 export interface InputNewPasswordConfiguration {
