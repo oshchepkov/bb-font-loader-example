@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, FormArray, FormGroup, ValidationErrors } from '@angular/forms';
 
 export const MINIMUM_PASSWORD_LENGTH = 8;
 
@@ -14,13 +14,22 @@ export enum Validation {
   PasswordHasSpecialCharacter = 'passwordHasSpecialCharacter',
 }
 
+/**
+ * here we have to be creative about writing "password match" validator.
+ * in this implementation we are aware of the placement of our "new-password" component in our form
+ * so we just get the right control (by a key) and compare it's value with what we are typing in the "confirm" field
+ */
 export function passwordsMatchValidator(control: AbstractControl) {
-  // TO-DO: implement proper logic
-  const { newPassword, confirmNewPassword } = control.value;
-  if (confirmNewPassword === newPassword) {
-    return null;
+  const form: FormGroup | FormArray = control.parent;
+  if (form) {
+    const compareToKey = 'new-password'; // "new-password" is a "key" value matching the one from Formly fieldGroup
+    const confirmValue = form.get(compareToKey).value;
+    if (control.value === confirmValue) {
+      return null;
+    }
+    return { [Validation.PasswordsMatch]: true };
   }
-  return { [Validation.PasswordsMatch]: { message: "Passwords don't match" } };
+  return null;
 }
 
 export function passwordsMinLengthValidator({ value }: AbstractControl): null | ValidationErrors {
