@@ -7,6 +7,7 @@ import {
   passwordHasNumberValidator,
   passwordHasSpecialCharacterValidator,
   passwordHasUppercaseValidator,
+  passwordsMatchValidator,
   passwordsMinLengthValidator,
   Validation,
 } from '../validators';
@@ -34,6 +35,7 @@ import { CustomUiModule, InputNewPasswordComponent } from '@backbase/custom-ui';
         { name: Validation.PasswordHasNumber, validation: passwordHasNumberValidator },
         { name: Validation.PasswordHasUppercase, validation: passwordHasUppercaseValidator },
         { name: Validation.PasswordHasSpecialCharacter, validation: passwordHasSpecialCharacterValidator },
+        { name: Validation.PasswordsMatch, validation: passwordsMatchValidator },
       ],
     }),
   ],
@@ -57,6 +59,12 @@ import { CustomUiModule, InputNewPasswordComponent } from '@backbase/custom-ui';
             label: 'Include a special character',
             name: Validation.PasswordHasSpecialCharacter,
             validation: passwordHasSpecialCharacterValidator,
+          },
+          {
+            label: 'Passwords match',
+            name: Validation.PasswordsMatch,
+            validation: passwordsMatchValidator,
+            confirm: true,
           },
         ],
       },

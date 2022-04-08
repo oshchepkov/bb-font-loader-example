@@ -5,6 +5,7 @@ export interface NewPasswordValidatorConfiguration {
   label: string;
   name: string;
   validation: ValidatorFn;
+  confirm?: boolean;
 }
 
 export interface InputNewPasswordConfiguration {
