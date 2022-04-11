@@ -23,7 +23,7 @@ export class TestPasswordJourneyComponent {
           className: 'col-12 col-lg-8 pb-3',
           type: 'new-password',
           templateOptions: {
-            label: 'Create A Password',
+            label: $localize`Create A Password`,
             required: true,
             showVisibilityControl: true,
             confirm: false, // "true" is for "confirm password" mode
@@ -35,7 +35,7 @@ export class TestPasswordJourneyComponent {
           className: 'col-12 col-lg-8 pb-3',
           type: 'new-password',
           templateOptions: {
-            label: 'Confirm Password',
+            label: $localize`Confirm Password`,
             required: true,
             showVisibilityControl: true,
             confirm: true, // "true" is for "confirm password" mode

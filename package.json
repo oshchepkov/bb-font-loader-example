@@ -20,6 +20,7 @@
     "lint:all": "nx run-many --all --target=lint",
     "ng": "nx",
     "start": "nx serve",
+    "start:fr": "nx serve --configuration='fr'",
     "test": "nx test",
     "test:affected": "nx affected:test --base=origin/${CHANGE_TARGET:-main}",
     "xi18n:business-universal": "ng extract-i18n business-universal --output-path=apps/business-universal/src/locale && xliffmerge --profile=apps/business-universal/src/xliffmerge.json en es",

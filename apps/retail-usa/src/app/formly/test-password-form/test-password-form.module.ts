@@ -45,23 +45,27 @@ import { CustomUiModule, InputNewPasswordComponent } from '@backbase/custom-ui';
       useValue: <InputNewPasswordConfiguration>{
         validators: [
           {
-            label: 'At least 8 characters',
+            label: $localize`At least 8 characters`,
             name: Validation.PasswordMinLength,
             validation: passwordsMinLengthValidator,
           },
-          { label: 'Include a number', name: Validation.PasswordHasNumber, validation: passwordHasNumberValidator },
           {
-            label: 'Include an uppercase',
+            label: $localize`Include a number`,
+            name: Validation.PasswordHasNumber,
+            validation: passwordHasNumberValidator,
+          },
+          {
+            label: $localize`Include an uppercase`,
             name: Validation.PasswordHasUppercase,
             validation: passwordHasUppercaseValidator,
           },
           {
-            label: 'Include a special character',
+            label: $localize`Include a special character`,
             name: Validation.PasswordHasSpecialCharacter,
             validation: passwordHasSpecialCharacterValidator,
           },
           {
-            label: 'Passwords match',
+            label: $localize`Passwords match`,
             name: Validation.PasswordsMatch,
             validation: passwordsMatchValidator,
             confirm: true,
