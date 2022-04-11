@@ -18,6 +18,7 @@ export class InputNewPasswordComponent extends FieldType implements OnInit, OnDe
   formControl!: FormControl;
   config: InputNewPasswordConfiguration;
   destroy$ = new Subject();
+  requirementIcon = 'success'; // default 'success'
 
   constructor(@Optional() @Inject(InputNewPasswordConfigurationToken) _config: InputNewPasswordConfiguration) {
     super();
@@ -30,6 +31,10 @@ export class InputNewPasswordComponent extends FieldType implements OnInit, OnDe
     // it's important to check if "confirm-password" value still matches if "new-password" field value changes
     if (this.to.confirm) {
       this.setFormListener();
+    }
+
+    if (this.config.requirementIcon) {
+      this.requirementIcon = this.config.requirementIcon;
     }
   }
 

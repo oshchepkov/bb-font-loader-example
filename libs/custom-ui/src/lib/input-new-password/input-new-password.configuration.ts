@@ -10,6 +10,7 @@ export interface NewPasswordValidatorConfiguration {
 
 export interface InputNewPasswordConfiguration {
   validators: NewPasswordValidatorConfiguration[];
+  requirementIcon?: string;
 }
 
 export const InputNewPasswordConfigurationToken = new InjectionToken<InputNewPasswordConfiguration>(

@@ -71,6 +71,7 @@ import { CustomUiModule, InputNewPasswordComponent } from '@backbase/custom-ui';
             confirm: true,
           },
         ],
+        requirementIcon: 'success',
       },
     },
   ],
