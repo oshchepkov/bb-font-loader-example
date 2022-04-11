@@ -43,6 +43,7 @@ import { CustomUiModule, InputNewPasswordComponent } from '@backbase/custom-ui';
     {
       provide: InputNewPasswordConfigurationToken,
       useValue: <InputNewPasswordConfiguration>{
+        requirementIcon: 'success',
         validators: [
           {
             label: $localize`At least 8 characters`,
@@ -71,7 +72,6 @@ import { CustomUiModule, InputNewPasswordComponent } from '@backbase/custom-ui';
             confirm: true,
           },
         ],
-        requirementIcon: 'success',
       },
     },
   ],
