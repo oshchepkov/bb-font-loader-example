@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/custom-ui",
+  "sourceRoot": "libs/custom-ui/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/custom-ui/src/test.ts",
+        "tsConfig": "libs/custom-ui/tsconfig.spec.json",
+        "karmaConfig": "libs/custom-ui/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/custom-ui/src/**/*.ts", "libs/custom-ui/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

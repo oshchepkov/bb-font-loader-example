@@ -3,6 +3,12 @@
   "root": "apps/retail-usa",
   "sourceRoot": "apps/retail-usa/src",
   "prefix": "bb",
+  "i18n": {
+    "locales": {
+      "fr": "apps/retail-usa/src/locale/messages.fr.xlf",
+      "en": "apps/retail-usa/src/locale/messages.en.xlf"
+    }
+  },
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -19,6 +25,12 @@
         "scripts": []
       },
       "configurations": {
+        "en": {
+          "localize": ["en"]
+        },
+        "fr": {
+          "localize": ["fr"]
+        },
         "production": {
           "fileReplacements": [
             {
@@ -67,6 +79,12 @@
         "development": {
           "browserTarget": "retail-usa:build:development",
           "proxyConfig": "proxy-ret-us-l.conf.js"
+        },
+        "en": {
+          "browserTarget": "retail-usa:build:en"
+        },
+        "fr": {
+          "browserTarget": "retail-usa:build:fr"
         }
       },
       "defaultConfiguration": "development"

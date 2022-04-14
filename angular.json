@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "common-banking": "libs/common-banking",
+    "custom-ui": "libs/custom-ui",
     "retail-usa": "apps/retail-usa",
     "retail-usa-e2e": "apps/retail-usa-e2e"
   }

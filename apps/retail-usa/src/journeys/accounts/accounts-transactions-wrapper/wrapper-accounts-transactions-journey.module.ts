@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuickTransferJourneyModule } from '@backbase/quick-transfer-journey-ang';
 import { AccountsTransactionsJourneyWrapperComponent } from './wrapper-accounts-transactions-journey.component';
 import { QuickActionsComponent } from '../quick-actions.component';
+import { TestPasswordJourneyModule } from 'apps/retail-usa/src/app/formly/test-password-form/test-password-form.module';
 
 const routes: Routes = [
   {
@@ -23,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AccountsTransactionsJourneyWrapperComponent, QuickActionsComponent],
-  imports: [QuickTransferJourneyModule, RouterModule.forChild(routes), CommonModule],
+  imports: [QuickTransferJourneyModule, RouterModule.forChild(routes), CommonModule, TestPasswordJourneyModule],
 })
 export class AccountsTransactionsJourneyBundleModule {}

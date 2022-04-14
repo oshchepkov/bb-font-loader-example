@@ -7,7 +7,8 @@ import { QuickActionLink } from '../quick-actions.component';
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <router-outlet></router-outlet>
+          <test-password-journey></test-password-journey>
+          <!-- <router-outlet></router-outlet> -->
         </div>
         <div class="col-md-4 pt-5">
           <div class="card bb-block--xl">
