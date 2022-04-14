@@ -6,7 +6,7 @@ Create a "New Password" component that supports custom configurable password req
 
 # How it works
 The component can be put into a Formly form and provided a custom configuration that satisfies project requirements.
-The coponents the following as configuration parameters:
+The coponents accept the following configuration parameters:
  - list of custom validators
  - icon name  
 
@@ -33,6 +33,7 @@ The coponents the following as configuration parameters:
         ],
     ...
     ```
+
     Add your custom validators into `validators` array:
     ```
     imports: [
@@ -48,8 +49,9 @@ The coponents the following as configuration parameters:
 4. Import `InputNewPasswordConfiguration` and `InputNewPasswordConfigurationToken`:
     ```
     import { InputNewPasswordConfiguration, InputNewPasswordConfigurationToken } from '@backbase/custom-ui';
-```
+    ```
 5. Provide configuration for "New Password" component with `InputNewPasswordConfigurationToken` in the "providers" array:
+
     ```
       providers: [
         {
@@ -86,8 +88,9 @@ The coponents the following as configuration parameters:
             ],
             },
         },
-  ]
-  ```
+      ]
+    ```  
+
 `requirementIcon` - the icon that displays agains every password requirement.
   
 `validator` item in the `validators` array has the following attributes:
